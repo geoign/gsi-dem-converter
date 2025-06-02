@@ -3,23 +3,19 @@ Fast and effecient tool to convert GSI FGD GML into GeoTIFF format
 
 高速で効率的な国土地理院FGD GML(*.xml)形式の標高データをGeoTIFFに変換するツール
 
-## Install
-- Python pip
+## Python pip で使う場合
+インストール: `pip install gsi-dem-converter` (PyPI登録中...)
 
-`pip install gsi-dem-converter` (PyPI登録中...)
-
-- QGIS
-
-プラグイン一覧から探してインストール。 (!未完成!)
-
-## 実行
-- コマンドラインやシェルから
-
+コマンドラインやシェルから実行: 
 `gsi-dem-convert "C:\path\to\input\*.xml" --out "C:\path\to\output\out.tif" --sea-at-zero --workers 4`
 
-- Pythonスクリプト内で
+Pythonスクリプト内で呼び出し: example_python.pyを参照
 
-See example_python.py
+
+## QGISで使う場合(!まだ未完成!)
+プラグイン一覧から探してインストール。 
+
+メニューのプラグインから選択してGUIを開く
 
 ## Acknowledgements
 The code is based on https://github.com/MIERUNE/convert_fgd_dem_cli
