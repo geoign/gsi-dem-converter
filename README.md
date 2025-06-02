@@ -65,10 +65,8 @@ pip install git+https://github.com/geoign/gsi-dem-converter.git
 from gsi_dem_converter import convert
 
 convert(
-    src=r"C:\path\to\input\*.xml",
-    dst=r"C:\path\to\output\out.tif",
-    sea_at_zero=True,
-    workers=4,
+     inputs=inputs,
+     out_path=out_path
 )
 ```
 
