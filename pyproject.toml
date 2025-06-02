@@ -1,0 +1,58 @@
+# ------------------------------------------------------------------------------
+# 1. ビルドシステムの定義
+# ------------------------------------------------------------------------------
+[build-system]
+requires = [
+    "setuptools>=61.0.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+# ------------------------------------------------------------------------------
+# 2. プロジェクトメタデータ（PEP 621 準拠）
+# ------------------------------------------------------------------------------
+[project]
+# パッケージ名（PyPI に公開する場合などにも使われます）
+name = "gsi-dem-converter"
+# バージョン文字列（SemVer 準拠推奨）
+version = "0.1.0"
+# 一行説明
+description = "GSI FGD GML から GeoTIFF への高速変換ツール"
+# リポジトリの README を読み込む（長い説明文として使われます）
+readme = "README.md"
+# ライセンスを明記（MIT なら以下のようにテキストを指定）
+license = { text = "MIT" }
+# 作者情報（複数人も可能）
+authors = [
+    { name = "Fumihiko IKEGAMI", email = "f.ikegami@gmail.com" }
+]
+# プロジェクトの依存パッケージ一覧
+# - numpy, lxml, gdal は必須
+dependencies = [
+    "numpy>=1.20",
+    "lxml",
+    "gdal"
+]
+# キーワード（任意）
+keywords = [
+    "GSI",
+    "GIS",
+    "GML",
+    "GeoTIFF",
+    "DEM",
+    "Converter"
+]
+# 分類タグ。PyPI に公開する場合などに目立ちます。
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+# プロジェクト関連の URL（任意）
+[project.urls]
+Homepage = "https://github.com/geoign/gsi-dem-converter"
+"Bug Tracker" = "https://github.com/geoign/gsi-dem-converter/issues"
+
+# ------------------------------------------------------------------------------
+# 3. setuptools 用パッケージ検出設定
+# ------------------------------------------------------------------------------
