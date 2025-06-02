@@ -15,7 +15,7 @@ build-backend = "setuptools.build_meta"
 # パッケージ名（PyPI に公開する場合などにも使われます）
 name = "gsi-dem-converter"
 # バージョン文字列（SemVer 準拠推奨）
-version = "0.1.0"
+version = "0.1.4"
 # 一行説明
 description = "GSI FGD GML から GeoTIFF への高速変換ツール"
 # リポジトリの README を読み込む（長い説明文として使われます）
