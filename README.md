@@ -5,15 +5,20 @@ Fast and effecient tool to convert GSI FGD GML into GeoTIFF format
 
 ## Install
 - Python pip
+
 `pip install gsi-dem-converter` (PyPI登録中...)
+
 - QGIS
+
 プラグイン一覧から探してインストール。 (!未完成!)
 
 ## 実行
 - コマンドラインやシェルから
+
 `gsi-dem-convert "C:\path\to\input\*.xml" --out "C:\path\to\output\out.tif" --sea-at-zero --workers 4`
 
 - Pythonスクリプト内で
+
 See example_python.py
 
 ## Acknowledgements
