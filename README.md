@@ -34,15 +34,6 @@ Fast & efficient converter from **GSI FGD DEM (GML \*.xml)** to **GeoTIFF** 📏
 * **QGIS GUI plugin** (work in progress)
 
 ## Installation
-
-### PyPI (coming soon)
-
-```bash
-pip install gsi-dem-converter
-```
-
-### GitHub
-
 ```bash
 pip install git+https://github.com/geoign/gsi-dem-converter.git
 ```
