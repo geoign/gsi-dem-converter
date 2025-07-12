@@ -100,7 +100,8 @@ def _write_tile(ds, meta: dict, arr):
     px_h = abs(gt[5])
 
     # タイルの左上 (arr[0,0]) の座標（緯度経度）をメタから取得
-    lat0, lon0 = meta["upper_corner"]
+    lat0 = meta["upper_corner"][0]  # lat_max
+    lon0 = meta["lower_corner"][1]   # lon_min
     # GeoTIFF 内のオフセットを計算（左上原点、北緯上向きなので注意）
     x_off = math.floor((lon0 - gt[0]) / px_w)
     y_off = math.floor((gt[3] - lat0) / px_h)
