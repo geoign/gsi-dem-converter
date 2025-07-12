@@ -60,12 +60,15 @@ def _parse_xml_fast(path: Path, sea_at_zero: bool) -> Tuple[int, dict, np.ndarra
                 grid_high = (high[0] + 1, high[1] + 1)
 
             elif tag == "tupleList":
-                # tupleList 部分のテキストをバイト列として取り出す
-                text = elem.text if (elem.text and elem.text.strip()) else None
-                if text:
-                    tuple_bytes = text.encode("utf-8", "replace")
+                tuple_text = elem.text.strip() if elem.text else ""
+                tuple_bytes = tuple_text.encode("utf-8", "ignore") if tuple_text else b""
+                # 空の場合を明示的に扱い
+                if not tuple_bytes:
+                    heights_list = []  # 空リストで後続のexpected埋めへ
                 else:
-                    tuple_bytes = etree.tostring(elem, method="text", encoding="utf-8")
+                    text_str = tuple_bytes.decode("utf-8", "ignore")
+                    lines = text_str.splitlines()
+                    heights_list: List[float] = []
 
             # メモリ節約のために要素をクリア
             elem.clear()

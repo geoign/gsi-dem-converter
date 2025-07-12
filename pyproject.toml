@@ -48,6 +48,10 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]
+
+[project.scripts]
+gsi-dem-convert = "gsi_dem_converter.cli.main:main"
+
 # プロジェクト関連の URL（任意）
 [project.urls]
 Homepage = "https://github.com/geoign/gsi-dem-converter"
@@ -56,3 +60,6 @@ Homepage = "https://github.com/geoign/gsi-dem-converter"
 # ------------------------------------------------------------------------------
 # 3. setuptools 用パッケージ検出設定
 # ------------------------------------------------------------------------------
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["gsi_dem_converter*"]

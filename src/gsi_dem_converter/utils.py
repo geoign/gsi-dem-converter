@@ -41,12 +41,15 @@ def _expand_inputs(inputs: Sequence[str | Path]) -> List[Path]:
                 paths.extend([q for q in p.rglob("*.xml") if _is_fgd_xml(q)])
 
             elif p.suffix.lower() == ".zip":
-                # ZIP は一時フォルダに全部展開し、その中の *.xml を探索
+                import tempfile  # 追加インポート（上部に追加）
                 with zipfile.ZipFile(p) as z:
-                    tmp_dir = p.with_suffix("")  # 例: foo.zip → foo/
-                    if not tmp_dir.exists():
-                        z.extractall(tmp_dir)
-                    paths.extend([q for q in tmp_dir.rglob("*.xml") if _is_fgd_xml(q)])
+                    with tempfile.TemporaryDirectory() as tmp_dir_str:
+                        tmp_dir = Path(tmp_dir_str)
+                        # XMLのみ抽出（全抽出せず効率化、ZIP bomb対策としてファイル数制限可能だが今回はシンプルに）
+                        for member in z.namelist():
+                            if Path(member).suffix.lower() == ".xml" and _is_fgd_xml(Path(member)):
+                                z.extract(member, tmp_dir)
+                        paths.extend([q for q in tmp_dir.rglob("*.xml") if _is_fgd_xml(q)])
 
             else:
                 # 普通のファイルなら FGD XML かチェック
